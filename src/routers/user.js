@@ -1,5 +1,6 @@
 const express = require('express')
 const router = new express.Router()
+const auth = require('../middleware/auth')
 const User = require('../models/user')
 
 // Create user
@@ -26,16 +27,10 @@ router.post('/users/login', async (req, res) => {
   }
 })
 
-// Find all users
-router.get('/users', async (req, res) => {
-  // I det tomma objectet kan man filtrera osv, tex name: "Martin", lämnar man det tomt får man allt
-
-  try {
-    const users = await User.find({})
-    res.send(users)
-  } catch (error) {
-    res.status(500).send()
-  }
+// Find all users. // the middleware func is the 2nd argument, the routh
+// Function will only run if the next() function is called in the middleware
+router.get('/users/me', auth, async (req, res) => {
+  res.send(req.user)
 })
 
 // Find single user
