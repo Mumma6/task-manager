@@ -11,12 +11,3 @@ npm run dev för att starta express servern
 
 
 Alla HTTP status koder finns här: https://httpstatuses.com/
-
-
-// 2020-02-21
-
-Precis i början av Task manager appen. Detta är endast en backend app? Isåfall måste det 
-göras en frontend med React. React hooks.
-
-// 2020-04-13
-Utveckla den till att bli en Rejäl task manager. Skitsamma om den är värdelös, målet är att koda massor
